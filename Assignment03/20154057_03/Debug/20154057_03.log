@@ -1,2 +1,3 @@
 ﻿  20154057_03.c
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment03\20154057_03\20154057_03.c(29,37): warning C4133:  '함수': 'int **'과(와) 'char **' 사이의 형식이 호환되지 않습니다.
   20154057_03.vcxproj -> C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment03\20154057_03\Debug\20154057_03.exe
