@@ -3,18 +3,18 @@
 
 int num = 1;
 
-void subset(char* argv[], int argc, int count, int aindex, char* output[], int oindex){
+void subset(char* argv[], int argc, int count, int aindex, char* output[], int oindex) {
 	if (aindex == count) {
 		printf("[%04d]", num);
 		num++;
 		for (int j = 0; j < count; j++)
-			if(j!=count-1) printf("%s, ", output[j]);
+			if (j != count - 1) printf("%s, ", output[j]);
 			else printf("%s", output[j]);
 		printf("\n");
 		return;
 	}
 
-	if (oindex >= argc-1)
+	if (oindex >= argc - 1)
 		return;
 
 	output[aindex] = argv[oindex];
@@ -22,16 +22,9 @@ void subset(char* argv[], int argc, int count, int aindex, char* output[], int o
 	subset(argv, argc, count, aindex, output, oindex + 1);
 }
 
-void printsubset(char* argv[], int argc, int count) {
-
-	int** output = malloc(sizeof(int) * (count));
-
-	subset(argv, argc, count, 0, output, 0);
-}
-
 int main(int argc, char* argv[]) {
 	system("chcp 437");
-	
+
 	printf("[%04d]", num);
 	printf("%c\n", 0x9B);
 	num++;
@@ -40,8 +33,9 @@ int main(int argc, char* argv[]) {
 		argv[i] = argv[i + 1];
 	}
 
-	for (int i = 1; i <= argc-1; i++) {
-		printsubset(argv, argc, i);
+	int** output = malloc(sizeof(int) * (argc - 1));
+	for (int i = 1; i <= argc - 1; i++) {
+		subset(argv, argc, i, 0, output, 0);
 	}
 
 	printf("***---------------------------------------***\n");

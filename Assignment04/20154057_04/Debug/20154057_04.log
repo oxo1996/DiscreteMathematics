@@ -1,0 +1,4 @@
+﻿  20154057_04.c
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment04\20154057_04\20154057_04.c(60,34): warning C4133:  '함수': 'int **'과(와) 'char **' 사이의 형식이 호환되지 않습니다.
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment04\20154057_04\20154057_04.c(37,7): warning C4101:  'str' :참조되지 않은 지역 변수입니다.
+  20154057_04.vcxproj -> C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment04\20154057_04\Debug\20154057_04.exe
