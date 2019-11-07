@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-int num = 1;
+int num;
 
 int sumNumbers(int* pNumbers, int nIndex, FILE* fp2)
 {
@@ -15,7 +15,7 @@ int sumNumbers(int* pNumbers, int nIndex, FILE* fp2)
 	else
 	{
 		int sum = pNumbers[nIndex - 1] + sumNumbers(pNumbers, nIndex - 1, fp2);
-		fprintf(fp2, "[%04d]", num++);
+		fprintf(fp2, "[%03d]", num--);
 		fprintf(fp2, "%d\n", sum);
 		return sum;
 	}
@@ -45,6 +45,7 @@ int main(int argc, char* argv[]) {
 	
 	int nNumber = 0;
 	fscanf_s(fp1, "%d", &nNumber);  // read from the input file
+	num = nNumber;
 	int* pNumbers = (int*)calloc(nNumber, sizeof(int));
 
 	for (int i = nNumber-1; i >= 0; i--)
