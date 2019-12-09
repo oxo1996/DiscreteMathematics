@@ -1,0 +1,5 @@
+﻿  20154057_07.c
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment07\20154057_07\20154057_07.c(26,28): warning C4129:  '/': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment07\20154057_07\20154057_07.c(45,27): warning C4013:  'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment07\20154057_07\20154057_07.c(45,42): warning C4312:  '형식 캐스트': 'int'에서 더 큰 'char *'(으)로의 변환입니다.
+  20154057_07.vcxproj -> C:\Users\kimsm\Desktop\DiscreteMathematics\Assignment\01\Assignment07\20154057_07\x64\Debug\20154057_07.exe
