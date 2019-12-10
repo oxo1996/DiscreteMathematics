@@ -2,14 +2,14 @@
 #include <string.h>
 #pragma warning (disable: 4996)
 
-char* tok[10000];
-int count[10000];
+char tok[100000][100];
+int count[100000];
 
 
 int main(int argc, char* argv[])
 {	
 	for (int i = 0; i < 10000; i++) {
-		tok[i] = NULL;
+
 		count[i] = 0;
 	}
 
@@ -23,7 +23,21 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	const char delimiters[] = "\/,!*()[]{}-+&^%$#@=<>:;\"\'.?_ \t\r\n\v\f";
+	char delimiters[66];
+	int delnum = 0;
+	for (int i = 1; i < 48; i++) {
+		delimiters[delnum++] = i;
+	}
+	for (int i = 58; i < 65; i++) {
+		delimiters[delnum++] = i;
+	}
+	for (int i = 91; i < 97; i++) {
+		delimiters[delnum++] = i;
+	}
+	for (int i = 123; i < 128; i++) {
+		delimiters[delnum++] = i;
+	}
+	delimiters[65] = '\0';
 
 	char* token;
 	int tokbe = 0;
@@ -34,31 +48,30 @@ int main(int argc, char* argv[])
 		fgets(src, sizeof(src), fp1);
 		token = strtok(src, delimiters);
 		while (token != NULL) {
-			while (tok[i] != NULL) {
-				if (!strcmp(tok[i], token)) {
-					count[i]++;
+			strlwr(token);
+			for (int iter = 0; iter < i; iter++) {
+				if (!strcmp(tok[iter], token)) {
+					count[iter]++;
 					tokbe = 1;
+					break;
 				}
-				i++;
 			}
 			if (tokbe == 0) {
-				tok[i] = (char*)malloc(sizeof(token));
-				tok[i] = token;
+				strcpy(tok[i], token);
 				count[i] = 1;
+				i++;
 			}
-
-			i = 0;
 			tokbe = 0;
 			token = strtok(NULL, delimiters);
 		}
 	}
 
 	int sum = 0;
-	for (int i = 0; tok[i] != NULL; i++) {
-		fprintf(fp2, "[%04d] ", i);
-		fprintf(fp2, "%s", tok[i]);
-		fprintf(fp2, " (%d)\n", count[i]);
-		sum += count[i];
+	for (int iter = 0; iter<i ; iter++) {
+		fprintf(fp2, "[%04d] ", iter+1);
+		fprintf(fp2, "%s", tok[iter]);
+		fprintf(fp2, " (%d)\n", count[iter]);
+		sum += count[iter];
 	}
 
 	fputs("[total] ", fp2);
